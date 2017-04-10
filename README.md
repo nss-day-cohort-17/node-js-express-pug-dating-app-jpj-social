@@ -32,3 +32,5 @@ After months without any success in the dating app market, you decide to rebrand
 1. For session persistence be sure to use the following technologies: `express-session`, `passport`, `passport-local`, `connect-session-knex`.
 
 1. Using `bookshelf-bcrypt` and `bcrypt`, authenticate user credentials on login and registration.
+
+TRELLO LINK:- https://trello.com/b/Stqt2d9L/dating-app
