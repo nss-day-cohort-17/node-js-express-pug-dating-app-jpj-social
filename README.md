@@ -23,7 +23,7 @@ After months without any success in the dating app market, you decide to rebrand
 
 ## Requirements
 
-1. Before any code is written, use a organization tool to fully plan the project out.   
+1. Before any code is written, use a organization tool to fully plan the project out.
 
 1. Use Knex, Bookshelf and PostgreSQL for the database and database ORM.
 
