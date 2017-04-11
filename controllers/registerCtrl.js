@@ -14,7 +14,7 @@ module.exports.create = ({body: {userName, password, confirmation}}, res) => {
       return User.forge({userName, password})
       .save()
       .then( () => {
-        res.redirect('/')
+        res.redirect('/profile')
       })
       // catch for save()
       .catch( (err) => res.render('register', {msg: "Dang. There was probz. Try again."}));
