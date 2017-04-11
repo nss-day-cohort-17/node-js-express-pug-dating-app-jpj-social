@@ -1,0 +1,10 @@
+extends partials/layout.pug
+
+block content
+    .heading
+        h1 Oh Noz please don't go!'
+    .login-form
+        form(method='POST')
+            .logout-form__submit
+                a.btn.btn-danger.btn-lg(href='/') Go back
+                input.btn.btn-success.btn-lg(type='submit' value='Logout')
