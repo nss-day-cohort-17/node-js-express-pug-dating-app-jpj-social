@@ -12,15 +12,15 @@ const User = bookshelf.Model.extend({
     return compare(passwordStr, this.attributes.password)
   }
 }, {
-  findOneByUserName: function (email) {
-    return this.forge({email})
+  findOneByUserName: function (username) {
+    return this.forge({username})
     .fetch()
     .then( (user) => {
-      console.log("Got User", user.get('email'));
+      console.log("Got User", user.get('username'));
       return user;
     })
     .catch( () => {
-      console.log("yup, this happens when no email");
+      console.log("Username not found");
       return (null)
     });
   }
