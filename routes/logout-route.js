@@ -1,12 +1,11 @@
-'use strict';
+'use strict'
 
-const { Router } = require('express');
+const { Router } = require('express')
+const { edit, destroy } = require('../controllers/sessionCtrl')
 
-const { edit, destroy } = require('../controllers/sessionCtrl');
+const router = Router()
 
-const router = Router();
+router.get('/logout', edit)
+router.post('/logout', destroy)
 
-router.get('/logout', edit);
-router.post('/logout', destroy);
-
-module.exports = router;
+module.exports = router
