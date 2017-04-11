@@ -1,34 +1,41 @@
 'use strict';
 
 const User = require('../models/userModel')
+const {knex} = require('../db/database')
 
+const Dislike = () => knex('dislikes')
+const Like = () => knex('likes')
+
+// gets all likes from likes table
 const getLikes = () =>
-  Likes().select()
+  Like().select()
   .then((rows) => rows)
   .catch((error) => {
     throw error
   })
 
+// gets all dislikes from dislikes table
 const getDislikes = () =>
-  Dislikes().select()
+  Dislike().select()
   .then((rows) => rows)
   .catch((error) => {
     throw error
   })
 
+// gets all likes and dislikes and passes them into the profile page when rendering
 module.exports.show = (req, res, err) =>
   Promise.all([getLikes(), getDislikes()])
   .then(([likes, dislikes]) =>
     res.render('profile', {page: 'Profile', likes, dislikes})
   ).catch(err)
 
+// method for creating a user profile
 module.exports.create = (req, res, err) => {
-  // console.log('body', req.body)
   const likes = req.body.likes
   const dislikes = req.body.dislikes
   req.body.likes = likes && typeof(likes) === 'string' ? [likes] : likes
   req.body.dislikes = dislikes && typeof(dislikes) === 'string' ? [dislikes] : dislikes
-  Order.forge(req.body)
+  User.forge(req.body)
   .save()
   .then((profileObj) => {
     req.flash('profileMsg', 'Thank you for joining!')
