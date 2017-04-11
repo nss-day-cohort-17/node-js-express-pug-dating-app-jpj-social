@@ -8,5 +8,6 @@ const router = Router()
 
 router.use('./home-route')
 router.use('./register')
+router.use('./logout')
 
 module.exports = router;
