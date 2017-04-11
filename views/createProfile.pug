@@ -1,0 +1,84 @@
+extends partials/layout.pug
+
+block content
+  .heading
+    h1 Personal info
+  .login-form
+    form(method="POST")
+      .form-group
+        label(for='firstName') First Name
+        input.form-control#firstName(
+          type='firstName'
+          name='firstName'
+          placeholder='Joe'
+          required
+        )
+      .form-group
+        label(for='lastName') Last Name
+        input.form-control#lastName(
+          type='lastName'
+          name='lastName'
+          placeholder='Shephard'
+          required
+        )
+      .form-group
+        label(for='email') Email
+        input.form-control#email(
+          type='email'
+          name='email'
+          placeholder='Joe@shep.com'
+          required
+        )
+      .form-group
+        label.control-label(for='gender') Gender
+        select.form-control#gender(name='gender' required)
+          option(disabled selected) Gender:
+          option(value = 'male') Male
+          option(value = 'female') Female
+      .form-group
+        label(for='city') City
+        input.form-control#city(
+          type='city'
+          name='city'
+          placeholder='Nashville'
+          required
+        )
+      .form-group
+        label(for='state') State
+        input.form-control#state(
+          type='state'
+          name='state'
+          placeholder='TN'
+          required
+        )
+      .form-group
+        label(for='phone') Phone Number
+        input.form-control#phone(
+          type='phone'
+          name='phone'
+          placeholder='555-555-5555'
+        )
+        #likes
+        h5 Likes
+        each like in likes
+          label= like.name
+            input(
+              type='checkbox'
+              name='like'
+              value=like.name
+              selected=(body.likes && body.likes.includes(like.name))
+            )
+        #dislikes
+        h5 Dislikes
+        each dislike in dislikes
+          label= dislike.name
+            input(
+              type='checkbox'
+              name='dislike'
+              value=dislike.name
+              selected=(body.dislikes && body.dislikes.includes(dislike.name))
+            )
+      .contact-form__submit
+        a.btn.btn-danger.btn-lg(href='/') Cancel
+        input.btn.btn-success.btn-lg(type='submit' value='Submit')
+        input.btn.btn-success.btn-lg(type='submit' value='Edit Profile')
