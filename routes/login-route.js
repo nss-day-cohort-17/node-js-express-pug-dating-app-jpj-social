@@ -7,7 +7,7 @@ const user = require('../controllers/sessionCtrl')
 
 const router = Router()
 
-router.get('/register', user.show)
-router.post('/register', user.create)
+router.get('/login', user.show)
+router.post('/login', user.create)
 
 module.exports = router
