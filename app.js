@@ -45,10 +45,14 @@ app.use((req, res, next) => {
 })
 
 app.use(express.static('public'))
-// app.use(routes)
+
+app.use(routes)
+app.use((req,res)=>{
+  res.render('/login', {page: Login})
+})
 
 app.use((req, res) => {
-  res.render('404')
+  res.render('/')
 })
 
 
