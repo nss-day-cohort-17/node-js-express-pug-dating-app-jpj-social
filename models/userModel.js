@@ -23,7 +23,13 @@ const User = bookshelf.Model.extend({
       console.log("yup, this happens when no email");
       return (null)
     });
-  }
+  },
+    getAllUsers: function () {
+      return this.forge().fetchAll()
+      .then(users => users)
+      .catch(() => null)
+    }
 });
 
 module.exports = User;
+
