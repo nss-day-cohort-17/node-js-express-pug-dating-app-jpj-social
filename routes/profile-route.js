@@ -1,10 +1,10 @@
 'use strict'
 
 const { Router } = require('express');
-const { show } = require('../controllers/profileCtrl')
+const { show, create } = require('../controllers/profileCtrl')
 
 const router = Router()
 
 router.get('/profile', show)
-router.post('/profile', edit)
+router.post('/profile', create)
 module.exports = router

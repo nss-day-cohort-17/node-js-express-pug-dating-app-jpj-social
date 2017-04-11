@@ -5,10 +5,10 @@ const router = Router()
 
 //public routes
 
-router.use('./home-route')
-router.use('./register-route')
+router.use(require('./home-route'))
+router.use(require('./register-route'))
 router.use(require('./login-route'))
-
+router.use(require('./profile-route'))
 
 
 
