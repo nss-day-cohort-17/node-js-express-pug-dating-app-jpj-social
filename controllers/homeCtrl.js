@@ -1,6 +1,14 @@
 `use strict`
 
+const User = require('../models/userModel')
+
+
 // show method renders index page
 module.exports.show = (req, res, next) => {
-  res.render('index', {page: 'Home'})
+  User.getAllUsers()
+  .then(users => {
+    users = users.toJSON()
+    res.render('index', {page: 'Home', users})
+  })
+  
 }
