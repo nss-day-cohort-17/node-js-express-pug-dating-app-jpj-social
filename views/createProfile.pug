@@ -78,6 +78,13 @@ block content
               value=dislike.name
               selected=(body.dislikes && body.dislikes.includes(dislike.name))
             )
+        #profilePic
+          input(
+            type="file"
+            name="profilePic"
+            )
+        //- img.myImg(src="https://encrypted-tbn3.gstatic.com/     images?q=tbn:ANd9GcSbuNesTVALkVJwmDPaSJUEgV45w5Cr6yraSIvedhvmQP5elWRfgw" alt="Image Title")
+        //-   button(type="submit") Upload
       .contact-form__submit
         a.btn.btn-danger.btn-lg(href='/') Cancel
         input.btn.btn-success.btn-lg(type='submit' value='Submit')
