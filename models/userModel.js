@@ -23,7 +23,13 @@ const User = bookshelf.Model.extend({
       console.log("Username not found");
       return (null)
     });
-  }
+  },
+    getAllUsers: function () {
+      return this.forge().fetchAll()
+      .then(users => users)
+      .catch(() => null)
+    }
 });
 
 module.exports = User;
+

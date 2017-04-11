@@ -51,9 +51,9 @@ app.use(routes)
 //   res.render('/login', {page: Login})
 // })
 
-app.use((req, res) => {
-  res.render('/')
-})
+// app.use((req, res) => {
+//   res.render('/')
+// })
 
 
 const port = process.env.PORT || 3000
