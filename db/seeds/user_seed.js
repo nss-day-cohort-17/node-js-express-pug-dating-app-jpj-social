@@ -1,5 +1,5 @@
 
-const users = require('./mock_users')
+const users = require('./MOCK_users')
 
 exports.seed = function(knex, Promise) {
 
