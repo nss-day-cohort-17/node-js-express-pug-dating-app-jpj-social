@@ -17,10 +17,10 @@ module.exports.create = ({body: {userName, password, confirmation}}, res) => {
         res.redirect('/profile')
       })
       // catch for save()
-      .catch( (err) => res.render('register', {msg: "Dang1. There was probz. Try again."}));
+      .catch( (err) => res.render('register', {msg: "Dang. There was probz. Try again."}));
     })
     // catch for findOneByEmail
-    .catch( (err) => res.render('register', {msg: "Dang2. There was probz. Try again."}));
+    .catch( (err) => res.render('register', {msg: "Dang. There was probz. Try again."}));
   } else {
     res.render('register', { msg: 'Oops. Password and confirmation don\'t match. Try again'});
   }
