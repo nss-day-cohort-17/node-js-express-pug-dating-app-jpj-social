@@ -25,7 +25,7 @@ module.exports.create = ({body: {username, password, confirmation}}, res) => {
               if(err) return next(err)
               res.redirect('/profile')
             })
-          })(req, res, next)
+          })({body: {username, password, confirmation}}, res, next)
         // res.redirect('/profile')
       })
       // catch for save()

@@ -1,0 +1,14 @@
+extends partials/layout.pug
+
+block content
+  .heading
+    h1 JPJ Social Welcomes You
+  each user in likedUserArr
+    .block.col-md-5
+      h3= user.attributes.username
+      h4= user.attributes.city
+      h4= user.attributes.state
+      //- h5= user.state
+      //- h6= user.gender
+      //-   .likeButton
+      //-     a.btn.btn-primary.btn-sm(href='/') Like
