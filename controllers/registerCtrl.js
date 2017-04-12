@@ -6,18 +6,18 @@ module.exports.show = (req, res) => {
   res.render('register', { page: 'Register'});
 }
 
-module.exports.create = ({body: {userName, password, confirmation}}, res) => {
+module.exports.create = ({body: {username, password, confirmation}}, res) => {
   if (password === confirmation) {
-    User.findOneByUserName(userName)
+    User.findOneByUserName(username)
     .then( (user) => {
       if (user) return res.render('register', { msg: 'user is already registered'});
-      return User.forge({userName, password})
+      return User.forge({username, password})
       .save()
       .then( () => {
         res.redirect('/profile')
       })
       // catch for save()
-      .catch( (err) => res.render('register', {msg: "Save failed."}));
+      .catch( (err) => res.render('register', {msg: `Save failed. ${err}`}));
     })
     // catch for findOneByEmail
     .catch( (err) => res.render('register', {msg: "find username failed."}));
