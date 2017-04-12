@@ -5,8 +5,10 @@ block content
     h1 JPJ Social Welcomes You
 
   each user in users
-    h3= user.username
-    h4= user.city
-    h5= user.state
-    h6= user.gender
-
+    .block.col-md-5
+      h3= user.username
+      h4= user.city
+      h5= user.state
+      h6= user.gender
+        .likeButton
+          a.btn.btn-primary.btn-sm(href='/') Like

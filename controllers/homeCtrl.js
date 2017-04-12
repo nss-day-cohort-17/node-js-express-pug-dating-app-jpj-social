@@ -10,5 +10,4 @@ module.exports.show = (req, res, next) => {
     users = users.toJSON()
     res.render('index', {page: 'Home', users})
   })
-  
 }
