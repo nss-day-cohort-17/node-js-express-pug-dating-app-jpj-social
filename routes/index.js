@@ -10,7 +10,14 @@ router.use(require('./register-route'))
 router.use(require('./logout-route'))
 router.use(require('./login-route'))
 
-
+//login guard middleware - sends user home if not registered
+router.use((req, res, next) => {
+  if(req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/login')
+  }
+})
 
 
 // private routes
