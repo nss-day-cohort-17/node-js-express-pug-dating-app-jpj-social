@@ -38,7 +38,7 @@ module.exports.create = (req, res, err) => {
   console.log("likes",likes);
   console.log("req.body",req.body);
   User.forge(req.body)
-  .save()
+  .save(update)
   .then((profileObj) => {
     req.flash('profileMsg', 'Thank you for joining!')
     res.redirect('/')
