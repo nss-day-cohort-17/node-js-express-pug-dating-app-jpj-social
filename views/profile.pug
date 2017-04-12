@@ -65,8 +65,8 @@ block content
             input#inlineCheckbox1(
               type='checkbox'
               name='like'
-              value=like.name
-              selected=(body.likes && body.likes.includes(like.name))
+              value=like.id
+              selected=(body.likes && body.likes.includes(like.id))
             )
         #dislikes
         h5 Dislikes
@@ -75,8 +75,8 @@ block content
             input(
               type='checkbox'
               name='dislike'
-              value=dislike.name
-              selected=(body.dislikes && body.dislikes.includes(dislike.name))
+              value=dislike.id
+              selected=(body.dislikes && body.dislikes.includes(dislike.id))
             )
         #profilePic
           input(
