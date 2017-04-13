@@ -54,7 +54,9 @@ app.use(routes)
 // app.use((req, res) => {
 //   res.render('/')
 // })
-
+app.use((err, req, res, next) => {
+  console.log(err.stack)
+})
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
