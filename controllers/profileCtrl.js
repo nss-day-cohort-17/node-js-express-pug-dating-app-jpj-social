@@ -2,7 +2,6 @@
 
 const User = require('../models/userModel')
 const {knex} = require('../db/database')
-
 const Dislike = () => knex('dislikes')
 const Like = () => knex('likes')
 
@@ -33,8 +32,10 @@ module.exports.show = (req, res, err) =>
 module.exports.create = (req, res, err) => {
   const likes = req.body.likes
   const dislikes = req.body.dislikes
+  // makes sure likes and dislikes are arrays
   req.body.likes = likes && typeof(likes) === 'string' ? [likes] : likes
   req.body.dislikes = dislikes && typeof(dislikes) === 'string' ? [dislikes] : dislikes
+  // sets photo based on gender
   if (req.body.gender === 'female') {
     req.body.photo =  "/images/girl.jpeg"
   }
