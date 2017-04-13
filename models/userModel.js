@@ -28,8 +28,13 @@ const User = bookshelf.Model.extend({
       return this.forge().fetchAll()
       .then(users => users)
       .catch(() => null)
-    }
+    },
+    getAllLikedUsers: function () {
+      return this.forge().query({where: {username:'thicks1a'}}).fetchAll()
+      .then(users => users.toJSON())
+      .catch(() => null)
+    },
+
 });
 
 module.exports = User;
-

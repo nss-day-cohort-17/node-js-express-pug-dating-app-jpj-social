@@ -6,19 +6,19 @@ block content
   .login-form
     form(method="POST")
       .form-group
-        label(for='firstName') First Name
+        label(for='firstname') First Name
         input.form-control#firstName(
-          type='firstName'
-          name='firstName'
+          type='text'
+          name='firstname'
           placeholder='Joe'
           required
         )
       .form-group
-        label(for='lastName') Last Name
+        label(for='lastname') Last Name
         input.form-control#lastName(
-          type='lastName'
-          name='lastName'
-          placeholder='Shepherd'
+          type='text'
+          name='lastname'
+          placeholder='Shephard'
           required
         )
       .form-group
@@ -38,7 +38,7 @@ block content
       .form-group
         label(for='city') City
         input.form-control#city(
-          type='city'
+          type='text'
           name='city'
           placeholder='Nashville'
           required
@@ -46,7 +46,7 @@ block content
       .form-group
         label(for='state') State
         input.form-control#state(
-          type='state'
+          type='text'
           name='state'
           placeholder='TN'
           required
@@ -54,7 +54,7 @@ block content
       .form-group
         label(for='phone') Phone Number
         input.form-control#phone(
-          type='phone'
+          type='tel'
           name='phone'
           placeholder='555-555-5555'
         )
@@ -64,9 +64,9 @@ block content
           label#like= like.name
             input#inlineCheckbox1(
               type='checkbox'
-              name='like'
-              value=like.name
-              selected=(body.likes && body.likes.includes(like.name))
+              name='likes'
+              value=like.id
+              selected=(body.likes && body.likes.includes(like.id))
             )
         #dislikes
         h5 Dislikes
@@ -74,14 +74,14 @@ block content
           label#dislike= dislike.name
             input(
               type='checkbox'
-              name='dislike'
-              value=dislike.name
-              selected=(body.dislikes && body.dislikes.includes(dislike.name))
+              name='dislikes'
+              value=dislike.id
+              selected=(body.dislikes && body.dislikes.includes(dislike.id))
             )
         #profilePic
           input(
             type="file"
-            name="profilePic"
+            name="photo"
             )
           if !img
             img.myImg(src="https://encrypted-tbn3.gstatic.com/     images?q=tbn:ANd9GcSbuNesTVALkVJwmDPaSJUEgV45w5Cr6yraSIvedhvmQP5elWRfgw" alt="Image Title")

@@ -23,4 +23,5 @@ router.use((req, res, next) => {
 // private routes
 router.use(require('./logout-route'))
 router.use(require('./profile-route'))
+router.use(require('./favorite-route'))
 module.exports = router;

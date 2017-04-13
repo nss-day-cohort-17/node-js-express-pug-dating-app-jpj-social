@@ -35,6 +35,8 @@ module.exports.create = (req, res, err) => {
   const dislikes = req.body.dislikes
   req.body.likes = likes && typeof(likes) === 'string' ? [likes] : likes
   req.body.dislikes = dislikes && typeof(dislikes) === 'string' ? [dislikes] : dislikes
+  console.log("likes",likes);
+  console.log("req.body",req.body);
   User.forge(req.body)
   .save()
   .then((profileObj) => {
@@ -42,7 +44,7 @@ module.exports.create = (req, res, err) => {
     res.redirect('/')
   })
   .catch((err) => {
-    console.log('profile creation did not work')
+    console.log('profile creation did not work',err)
     Promise.all([
       Promise.resolve(err),
       getDislikes(),
