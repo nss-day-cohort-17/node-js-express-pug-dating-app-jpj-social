@@ -26,6 +26,7 @@ module.exports.create = (req, res) => {
       .then( (user) => {
         //authenticate checks to see if user is in db. still not sure how the call works or why, got it working by looking at this website: http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/#.WO7k2GQrKHp
         passport.authenticate('local')(req, res, () => {
+          req.session.username = username
           res.redirect('/profile')
         })
       })
