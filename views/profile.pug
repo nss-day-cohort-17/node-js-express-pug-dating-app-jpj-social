@@ -35,6 +35,7 @@ block content
           option(disabled selected) Gender:
           option(value = 'male') Male
           option(value = 'female') Female
+          option(value = 'others') Other
       .form-group
         label(for='city') City
         input.form-control#city(
@@ -78,16 +79,6 @@ block content
               value=dislike.id
               selected=(body.dislikes && body.dislikes.includes(dislike.id))
             )
-        #profilePic
-          input(
-            type="file"
-            name="photo"
-            )
-          if !img
-            img.myImg(src="https://encrypted-tbn3.gstatic.com/     images?q=tbn:ANd9GcSbuNesTVALkVJwmDPaSJUEgV45w5Cr6yraSIvedhvmQP5elWRfgw" alt="Image Title")
-          else
-            img.myImg(src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" alt="Image")
-          button(type="submit") Upload
       .contact-form__submit
         a.btn.btn-danger.btn-lg(href='/') Cancel
         input.btn.btn-success.btn-lg(type='submit' value='Submit')

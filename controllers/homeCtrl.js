@@ -11,3 +11,11 @@ module.exports.show = (req, res, next) => {
     res.render('index', {page: 'Home', users})
   })
 }
+
+module.exports.create = (req,res,next) => {
+  User.likeUser()
+  .then (users => {
+    users = users.toJSON()
+    console.log("users",users);
+  })
+}
