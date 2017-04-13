@@ -3,6 +3,7 @@
 const User = require('../models/userModel')
 const passport = require('passport');
 
+// method called when GETting on register page
 module.exports.show = (req, res) => {
   res.render('register', { page: 'Register'});
 }
