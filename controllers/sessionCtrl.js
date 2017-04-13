@@ -21,6 +21,7 @@ module.exports.create = (req, res, next) =>
       // error is caught at end of app.js
       if(err) return next(err)
       console.log("error",err)
+      req.session.username = body.attributes.username
       res.redirect('/')
     })
   })(req, res, next)
