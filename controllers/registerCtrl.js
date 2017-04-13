@@ -29,6 +29,7 @@ module.exports.create = (req, res) => {
           res.redirect('/profile')
         })
       })
+    // })
       // catch for save()
       .catch( (err) => res.render('register', {msg: `Save failed. ${err}`}));
     })
