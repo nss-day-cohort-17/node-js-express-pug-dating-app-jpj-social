@@ -15,6 +15,7 @@ module.exports.create = (req, res, next) =>
     if(!user) return res.render('login', {page: 'Login'}, msg)
     // when logged in redirect to home
     req.login(user, (err) => {
+      // error is caught at end of app.js
       if(err) return next(err)
       res.redirect('/')
     })
