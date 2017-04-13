@@ -23,8 +23,11 @@ module.exports.create = (req, res) => {
       // if not it instantiates a user and saves then logs user in and redirects to profile page
       return User.forge({username, password})
       .save()
-      .then( () => {
-        res.redirect('/profile')
+      .then( (user) => {
+        //authenticate checks to see if user is in db. still not sure how the call works or why, got it working by looking at this website: http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/#.WO7k2GQrKHp
+        passport.authenticate('local')(req, res, () => {
+          res.redirect('/profile')
+        })
       })
       // catch for save()
       .catch( (err) => res.render('register', {msg: `Save failed. ${err}`}));
