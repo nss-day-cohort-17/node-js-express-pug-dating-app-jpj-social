@@ -20,6 +20,7 @@ module.exports.create = (req, res) => {
     User.findOneByUserName(username)
     .then( (user) => {
       if (user) return res.render('register', { msg: 'user is already registered'});
+      // if not it instantiates a user and saves then logs user in and redirects to profile page
       return User.forge({username, password})
       .save()
       .then( () => {
