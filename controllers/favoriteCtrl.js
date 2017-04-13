@@ -5,7 +5,8 @@ const User = require('../models/userModel')
 
 // show method renders index page
 module.exports.show = (req, res, next) => {
-  User.getAllLikedUsers()
+  // console.log("sessions.username",username);
+  User.getAllLikedUsers(req.session.user)
     .then((users) => {
       console.log("users",users[0].likedusers);
       let userPromise = users[0].likedusers
@@ -14,7 +15,6 @@ module.exports.show = (req, res, next) => {
       })
       Promise.all(userPromise)
       .then ((likedUserArr) =>{
-        console.log(likedUserArr)
         res.render('favorite', {page: 'Favorites', likedUserArr})
       })
 

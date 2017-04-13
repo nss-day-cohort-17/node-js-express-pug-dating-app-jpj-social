@@ -35,6 +35,13 @@ module.exports.create = (req, res, err) => {
   const dislikes = req.body.dislikes
   req.body.likes = likes && typeof(likes) === 'string' ? [likes] : likes
   req.body.dislikes = dislikes && typeof(dislikes) === 'string' ? [dislikes] : dislikes
+  if (req.body.gender === 'female') {
+    req.body.photo =  "/images/girl.jpeg"
+  }
+  else {
+    req.body.photo = '/images/male.png'
+  }
+  console.log("req.body.photo",req.body.photo);
   console.log("likes",likes);
   console.log("req.body",req.body);
   User.forge(req.body)
