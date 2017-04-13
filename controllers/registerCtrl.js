@@ -16,6 +16,7 @@ module.exports.create = (req, res) => {
   const confirmation = req.body.confirmation
   // checks to see if password and password confirmation are the same
   if (password === confirmation) {
+    // looks in db to see if username is already there
     User.findOneByUserName(username)
     .then( (user) => {
       if (user) return res.render('register', { msg: 'user is already registered'});
