@@ -1,6 +1,7 @@
 'use strict';
 
 const User = require('../models/userModel')
+const passport = require('passport');
 
 module.exports.show = (req, res) => {
   res.render('register', { page: 'Register'});
