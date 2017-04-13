@@ -42,9 +42,11 @@ module.exports.create = (req, res, err) => {
   else {
     req.body.photo = '/images/male.png'
   }
-  console.log("req.body.photo",req.body.photo);
-  console.log("likes",likes);
-  console.log("req.body",req.body);
+  // sets username on body object to be the same as the username on session object
+  req.body.username = req.session.username
+  // sets username variable for "where" below
+  let username = req.session.username
+  // instantiates user
   User.forge(req.body)
   .save()
   .then((profileObj) => {
