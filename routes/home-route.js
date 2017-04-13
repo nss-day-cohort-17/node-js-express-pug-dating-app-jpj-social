@@ -6,5 +6,5 @@ const { show, create } = require('../controllers/homeCtrl')
 const router = Router()
 
 router.get('/', show)
-router.patch('/', create)
+router.post('/', create)
 module.exports = router

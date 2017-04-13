@@ -6,10 +6,11 @@ const User = require('../models/userModel')
 // show method renders index page
 module.exports.show = (req, res, next) => {
   // console.log("sessions.username",username);
-  User.getAllLikedUsers(req.session.user)
+  User.findOneByUserName(req.session.username)
     .then((users) => {
-      console.log("users",users[0].likedusers);
-      let userPromise = users[0].likedusers
+      users = users.toJSON()
+      console.log("users",users.likedusers);
+      let userPromise = users.likedusers
       userPromise = userPromise.map(id =>{
         return User.forge({id : id}).fetch()
       })
