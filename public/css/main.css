@@ -1,0 +1,48 @@
+body {
+  background: lightgrey;
+  padding-top: 50px;
+}
+.myImg {
+  width: 80px;
+  height: 80px;
+}
+
+h1 {
+  margin-top: 100px;
+}
+
+.login-form {
+  align: center;
+}
+
+.btn {
+  float:  right;
+  margin-left: 10px;
+}
+#likes {
+  background-color: lightblue;
+  text-align: center;
+}
+#dislikes {
+  background-color: lightblue;
+  text-align: center;
+}
+label#like {
+  display: block;
+  padding-left: 40px;
+  text-indent: -15px;
+}
+label#dislike {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+.block {
+  border: 1px solid grey;
+}
+
+#img {
+  width: 150px;
+  height: 150px;
+  margin: 50px 0px 0px 500px;
+}

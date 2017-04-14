@@ -1,0 +1,95 @@
+extends partials/layout.pug
+
+block content
+  .heading
+    h1 Personal info
+  if fromReg
+    .login-form
+      form(method="POST")
+        .form-group
+          label(for='firstname') First Name
+          input.form-control#firstName(
+            type='text'
+            name='firstname'
+            placeholder='Joe'
+            required
+          )
+        .form-group
+          label(for='lastname') Last Name
+          input.form-control#lastName(
+            type='text'
+            name='lastname'
+            placeholder='Shephard'
+            required
+          )
+        .form-group
+          label(for='email') Email
+          input.form-control#email(
+            type='email'
+            name='email'
+            placeholder='Joe@shep.com'
+            required
+          )
+        .form-group
+          label.control-label(for='gender') Gender
+          select.form-control#gender(name='gender' required)
+            option(disabled selected) Gender:
+            option(value = 'male') Male
+            option(value = 'female') Female
+            option(value = 'others') Other
+        .form-group
+          label(for='city') City
+          input.form-control#city(
+            type='text'
+            name='city'
+            placeholder='Nashville'
+            required
+          )
+        .form-group
+          label(for='state') State
+          input.form-control#state(
+            type='text'
+            name='state'
+            placeholder='TN'
+            required
+          )
+        .form-group
+          label(for='phone') Phone Number
+          input.form-control#phone(
+            type='tel'
+            name='phone'
+            placeholder='555-555-5555'
+          )
+        img#img(src="https://encrypted-tbn1.gstatic.com/ images?q=tbn:ANd9GcTrQ-oU6GqjPnSNkDuUi7KZ5a-oh_rIAYvnb-lgnuqNQ3vm0tiZ")
+        #likes
+          h3 Likes
+          each like in likes
+            label#like= like.name
+              input(
+                type='checkbox'
+                name='likes'
+                value=like.id
+                selected=(body.likes && body.likes.includes(like.id))
+              )
+        #dislikes
+          h3 Dislikes
+          each dislike in dislikes
+            label#dislike= dislike.name
+              input(
+                type='checkbox'
+                name='dislikes'
+                value=dislike.id
+                selected=(body.dislikes && body.dislikes.includes(dislike.id))
+              )
+
+        .contact-form__submit
+          a.btn.btn-danger.btn-lg(href='/') Cancel
+          input.btn.btn-success.btn-lg(type='submit' value='Submit')
+  if !fromReg
+    .profile
+      img(src=photo)
+      h3= username
+      h4= name
+      h4= gender
+      h4= phone
+      h4= email

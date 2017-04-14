@@ -1,0 +1,16 @@
+extends partials/layout.pug
+
+block content
+  .heading
+    h1 JPJ Social Welcomes You
+
+  each user in users
+    .block.col-md-5
+      h3= user.username
+      h4= user.city
+      h5= user.state
+      h6= user.gender
+      img.myImg(src= user.photo)
+      form(method='post')
+        .likeButton
+          button.btn.btn-primary.btn-sm(type='submit' formaction= '/' name='likedusers' value=user.id) Like

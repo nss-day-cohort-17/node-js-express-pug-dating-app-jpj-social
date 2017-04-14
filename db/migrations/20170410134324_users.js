@@ -14,8 +14,8 @@ exports.up = function(knex, Promise) {
       t.string('photo')
       t.string('gender')
       t.specificType('likedusers', knex.raw('text[]'))
-      t.specificType('likes', knex.raw('text[]')).notNullable()
-      t.specificType('dislikes', knex.raw('text[]')).notNullable()
+      t.specificType('likes', knex.raw('text[]'))
+      t.specificType('dislikes', knex.raw('text[]'))
     })
 };
 
