@@ -9,7 +9,7 @@ module.exports.show = (req, res, next) => {
   User.findOneByUserName(req.session.username)
     .then((users) => {
       users = users.toJSON()
-      let userPromise = users.likedusers
+      let userPromise = users[0].likedusers
       if (!userPromise) res.render('favorite', { page: 'Favorites', msg: 'No users liked yet'})
 
       userPromise = userPromise.map(id =>{
@@ -22,5 +22,4 @@ module.exports.show = (req, res, next) => {
 
 
     })
-  })
-}
+  }
