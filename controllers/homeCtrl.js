@@ -16,6 +16,6 @@ module.exports.create = (req,res,next) => {
   User.likeUser()
   .then (users => {
     users = users.toJSON()
-    console.log("users",users);
+    // console.log("users",users);
   })
 }
