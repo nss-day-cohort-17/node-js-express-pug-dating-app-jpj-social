@@ -7,7 +7,6 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
     //- puts company name in left corner of nav bar
     a.navbar-brand(href='/') #{company}
-
     #navbar.collapse.navbar-collapse
       //- buttons (will collapse into hamburger and will be selected when on page)
       ul.nav.navbar-nav
@@ -27,3 +26,4 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             a(href='/login') Login
           li(class={active: page === 'Register'})
             a(href='/register') Register
+
