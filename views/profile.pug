@@ -59,26 +59,27 @@ block content
           name='phone'
           placeholder='555-555-5555'
         )
+        img#img(src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTrQ-oU6GqjPnSNkDuUi7KZ5a-oh_rIAYvnb-lgnuqNQ3vm0tiZ")
         #likes
-        h5 Likes
-        each like in likes
-          label#like= like.name
-            input#inlineCheckbox1(
-              type='checkbox'
-              name='likes'
-              value=like.id
-              selected=(body.likes && body.likes.includes(like.id))
-            )
+          h3 Likes
+          each like in likes
+            label#like= like.name
+              input(
+                type='checkbox'
+                name='likes'
+                value=like.id
+                selected=(body.likes && body.likes.includes(like.id))
+              )
         #dislikes
-        h5 Dislikes
-        each dislike in dislikes
-          label#dislike= dislike.name
-            input(
-              type='checkbox'
-              name='dislikes'
-              value=dislike.id
-              selected=(body.dislikes && body.dislikes.includes(dislike.id))
-            )
+          h3 Dislikes
+          each dislike in dislikes
+            label#dislike= dislike.name
+              input(
+                type='checkbox'
+                name='dislikes'
+                value=dislike.id
+                selected=(body.dislikes && body.dislikes.includes(dislike.id))
+              )
       .contact-form__submit
         a.btn.btn-danger.btn-lg(href='/') Cancel
         input.btn.btn-success.btn-lg(type='submit' value='Submit')
