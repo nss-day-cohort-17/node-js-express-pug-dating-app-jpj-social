@@ -60,18 +60,19 @@ block content
             name='phone'
             placeholder='555-555-5555'
           )
-          #likes
-          h5 Likes
+           img#img(src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTrQ-oU6GqjPnSNkDuUi7KZ5a-oh_rIAYvnb-lgnuqNQ3vm0tiZ")
+        #likes
+          h3 Likes
           each like in likes
             label#like= like.name
-              input#inlineCheckbox1(
+              input(
                 type='checkbox'
                 name='likes'
                 value=like.id
                 selected=(body.likes && body.likes.includes(like.id))
               )
-          #dislikes
-          h5 Dislikes
+        #dislikes
+          h3 Dislikes
           each dislike in dislikes
             label#dislike= dislike.name
               input(
@@ -80,10 +81,10 @@ block content
                 value=dislike.id
                 selected=(body.dislikes && body.dislikes.includes(dislike.id))
               )
-        .contact-form__submit
-          a.btn.btn-danger.btn-lg(href='/') Cancel
-          input.btn.btn-success.btn-lg(type='submit' value='Submit')
-          input.btn.btn-success.btn-lg(type='submit' value='Edit Profile')
+
+      .contact-form__submit
+        a.btn.btn-danger.btn-lg(href='/') Cancel
+        input.btn.btn-success.btn-lg(type='submit' value='Submit')
   if !fromReg
     .profile
       img(src=photo)
@@ -92,3 +93,4 @@ block content
       h4= gender
       h4= phone
       h4= email
+
