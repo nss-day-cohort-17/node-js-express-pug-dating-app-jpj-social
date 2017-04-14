@@ -4,6 +4,8 @@ const User = require('../models/userModel')
 const {knex} = require('../db/database')
 const Dislike = () => knex('dislikes')
 const Like = () => knex('likes')
+const express = require('express')
+const app = express()
 
 // gets all likes from likes table
 const getLikes = () =>
@@ -22,13 +24,28 @@ const getDislikes = () =>
   })
 
 // gets all likes and dislikes and passes them into the profile page when rendering
-module.exports.show = (req, res, err) =>
-  Promise.all([getLikes(), getDislikes()])
-  .then(([likes, dislikes]) =>
-    res.render('profile', {page: 'Profile', likes, dislikes})
-  ).catch(err)
+module.exports.show = (req, res, err) => {
+  // sets a local variable based on cookie variable
+  let fromReg = req.session.fromReg
 // if from register, show page as normal
-// if from clicking profile, show users likes and dislikes and info
+  if(req.session.fromReg === true) {
+    Promise.all([getLikes(), getDislikes()])
+    .then(([likes, dislikes]) => {
+      res.render('profile', {page: 'Profile', likes, dislikes, fromReg})
+    }).catch(err)
+    .then(() => {
+      // resets cookie variable to false
+      req.session.fromReg === false
+    })
+// if from clicking 'profile', show user's likes and dislikes and info as uneditable
+  } else {
+    User.findOneByUserName(req.session.username)
+    .then( (user) => {
+      console.log('user from profile shower', user)
+      res.render('profile', {page: 'Profile'})
+    })
+  }
+}
 
 // method for creating a user profile
 module.exports.create = (req, res, err) => {
