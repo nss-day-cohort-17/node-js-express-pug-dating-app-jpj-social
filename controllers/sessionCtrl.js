@@ -8,7 +8,7 @@ module.exports.show = (req, res) => res.render('login', {page: 'Login'});
 // create method runs authentication and sends user to home if logged in
 module.exports.create = (req, res, next) =>
   passport.authenticate('local', (err, user, msg) => {
-    console.log('user', user)
+    // console.log('user', user)
     // error is caught at end of app.js
     if(err) return next(err)
       console.log("1st err", user)

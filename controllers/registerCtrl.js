@@ -30,6 +30,7 @@ module.exports.create = (req, res) => {
           req.session.username = username
           // sets variable on cookie to show that user came from register page
           req.session.fromReg = true
+          console.log('req.session.fromReg from registerCtrl', req.session.fromReg)
           res.redirect('/profile')
         })
       })
