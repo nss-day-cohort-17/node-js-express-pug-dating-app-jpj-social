@@ -27,6 +27,8 @@ module.exports.show = (req, res, err) =>
   .then(([likes, dislikes]) =>
     res.render('profile', {page: 'Profile', likes, dislikes})
   ).catch(err)
+// if from register, show page as normal
+// if from clicking profile, show users likes and dislikes and info
 
 // method for creating a user profile
 module.exports.create = (req, res, err) => {
