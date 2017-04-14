@@ -3,7 +3,7 @@ extends partials/layout.pug
 block content
   .heading
     h1 Personal info
-  .login-form
+  .login-form(class={display-none: fromReg === false})
     form(method="POST")
       .form-group
         label(for='firstname') First Name
