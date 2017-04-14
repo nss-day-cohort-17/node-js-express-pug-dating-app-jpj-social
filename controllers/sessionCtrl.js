@@ -19,8 +19,9 @@ module.exports.create = (req, res, next) =>
     req.login(user, (err) => {
       // error is caught at end of app.js
       if(err) return next(err)
-
+      // sets variable on cookie to username
       req.session.username = req.body.username
+      req.session.fromReg = false
       res.redirect('/')
     })
   })(req, res, next)
