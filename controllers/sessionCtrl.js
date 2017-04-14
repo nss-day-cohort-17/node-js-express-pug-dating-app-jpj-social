@@ -10,7 +10,7 @@ module.exports.create = (req, res, next) =>
   passport.authenticate('local', (err, user, msg) => {
     // error is caught at end of app.js
     if(err) {
-      return res.render('login', { msg : 'No matching login credentials found'})
+      return res.render('login', { msg : 'No matching login credentials found, please try again'})
     }
 
     // when not logged in go back to login
