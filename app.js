@@ -21,7 +21,7 @@ app.locals.errors = {}
 
 /**************Middlewares************/
 app.use(cookieParser('secretdating'))
-app.use(session({cookie: {maxAge: 60000}, secret: 'secretdating', resave: true, saveUninitialized: false}))
+app.use(session({cookie: {maxAge: 600000}, secret: 'secretdating', resave: true, saveUninitialized: false}))
 app.use(flash())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(session({
