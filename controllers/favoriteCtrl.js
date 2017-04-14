@@ -9,7 +9,6 @@ module.exports.show = (req, res, next) => {
   User.findOneByUserName(req.session.username)
     .then((users) => {
       users = users.toJSON()
-      console.log("users",users.likedusers);
       let userPromise = users.likedusers
       userPromise = userPromise.map(id =>{
         return User.forge({id : id}).fetch()
