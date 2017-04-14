@@ -41,8 +41,6 @@ app.use(passport.session())
 app.use((req, res, next) => {
   // sets app.locals.username to true or false
   app.locals.username = req.user && req.user.username
-  // sets variable on cookie to false to track if user came from register page
-  req.session.fromReg = false
   next()
 })
 
