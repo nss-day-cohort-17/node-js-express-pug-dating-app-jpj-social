@@ -13,15 +13,13 @@ module.exports.create = (req, res, next) =>
     if(err) return next(err)
       console.log("1st err", user)
     // when not logged in go back to login
-    if(!user)
-      // return res.render('login', {page: 'Login'}, msg)
-      console.log("msg",msg);
+    if(!user) return res.render('login', {page: 'Login'}, msg)
     // when logged in redirect to home
     req.login(user, (err) => {
       // error is caught at end of app.js
       if(err) return next(err)
       console.log("error",err)
-      req.session.username = body.attributes.username
+      req.session.username = req.body.username
       res.redirect('/')
     })
   })(req, res, next)
