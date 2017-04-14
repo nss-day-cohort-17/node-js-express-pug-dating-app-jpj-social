@@ -60,7 +60,7 @@ block content
             name='phone'
             placeholder='555-555-5555'
           )
-           img#img(src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTrQ-oU6GqjPnSNkDuUi7KZ5a-oh_rIAYvnb-lgnuqNQ3vm0tiZ")
+        img#img(src="https://encrypted-tbn1.gstatic.com/ images?q=tbn:ANd9GcTrQ-oU6GqjPnSNkDuUi7KZ5a-oh_rIAYvnb-lgnuqNQ3vm0tiZ")
         #likes
           h3 Likes
           each like in likes
@@ -82,9 +82,9 @@ block content
                 selected=(body.dislikes && body.dislikes.includes(dislike.id))
               )
 
-      .contact-form__submit
-        a.btn.btn-danger.btn-lg(href='/') Cancel
-        input.btn.btn-success.btn-lg(type='submit' value='Submit')
+        .contact-form__submit
+          a.btn.btn-danger.btn-lg(href='/') Cancel
+          input.btn.btn-success.btn-lg(type='submit' value='Submit')
   if !fromReg
     .profile
       img(src=photo)
@@ -93,4 +93,3 @@ block content
       h4= gender
       h4= phone
       h4= email
-

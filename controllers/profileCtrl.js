@@ -25,6 +25,7 @@ const getDislikes = () =>
 
 // gets all likes and dislikes and passes them into the profile page when rendering
 module.exports.show = (req, res, err) => {
+
   // sets a local variable based on cookie variable
   let fromReg = req.session.fromReg
 // if from register, show page as normal
@@ -47,6 +48,7 @@ module.exports.show = (req, res, err) => {
 
 // method for creating a user profile
 module.exports.create = (req, res, err) => {
+         console.log("hi");
   const likes = req.body.likes
   const dislikes = req.body.dislikes
   // makes sure likes and dislikes are arrays
@@ -63,6 +65,7 @@ module.exports.create = (req, res, err) => {
   req.body.username = req.session.username
   // sets username variable for "where" below
   let username = req.session.username
+  console.log("username",username);
   // instantiates user
   User.forge(req.body)
   // need this to tell bookshelf to update
@@ -85,5 +88,5 @@ module.exports.create = (req, res, err) => {
       return res.render('profile', {page: 'Profile', dislikes, likes, errors, body})
     })
   })
-  .catch(err)
+  .catch((err) =>{console.log("err",err);})
 }
