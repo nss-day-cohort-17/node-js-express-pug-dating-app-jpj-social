@@ -31,18 +31,16 @@ module.exports.show = (req, res, err) => {
   if(req.session.fromReg === true) {
     Promise.all([getLikes(), getDislikes()])
     .then(([likes, dislikes]) => {
+      // req.session.fromReg === false
       res.render('profile', {page: 'Profile', likes, dislikes, fromReg})
     }).catch(err)
-    .then(() => {
-      // resets cookie variable to false
-      req.session.fromReg === false
-    })
 // if from clicking 'profile', show user's likes and dislikes and info as uneditable
   } else {
     User.findOneByUserName(req.session.username)
-    .then( (user) => {
-      console.log('user from profile shower', user)
-      res.render('profile', {page: 'Profile'})
+    .then( ({attributes: {username, firstname, lastname, phone, email, photo, gender}}) => {
+      console.log(username, firstname, lastname, phone, email, photo, gender)
+      let name = `${firstname} ${lastname}`
+      res.render('profile', {page: 'Profile', username, name, phone, email, photo, gender})
     })
   }
 }
