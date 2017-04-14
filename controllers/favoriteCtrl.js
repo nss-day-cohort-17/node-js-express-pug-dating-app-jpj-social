@@ -10,6 +10,8 @@ module.exports.show = (req, res, next) => {
     .then((users) => {
       users = users.toJSON()
       let userPromise = users.likedusers
+      if (!userPromise) res.render('favorite', { page: 'Favorites', msg: 'No users liked yet'})
+
       userPromise = userPromise.map(id =>{
         return User.forge({id : id}).fetch()
       })

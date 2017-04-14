@@ -32,11 +32,11 @@ module.exports.create = (req, res) => {
       })
     // })
       // catch for save()
-      .catch( (err) => res.render('register', {msg: `Save failed. ${err}`}));
+      .catch( (err) => res.render('register', {page: 'Favorites', msg: `Save failed. ${err}`}));
     })
     // catch for findOneByEmail
-    .catch( (err) => res.render('register', {msg: "find username failed."}));
+    .catch( (err) => res.render('register', {page: 'Favorites', msg: "find username failed."}));
   } else {
-    res.render('register', { msg: 'Oops. Password and confirmation don\'t match. Try again'});
+    res.render('register', {page: 'Favorites', msg: 'Oops. Password and confirmation don\'t match. Try again'});
   }
 }
