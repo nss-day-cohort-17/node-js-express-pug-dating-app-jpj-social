@@ -10,7 +10,7 @@ block content
       h4= user.city
       h5= user.state
       h6= user.gender
+      img.myImg(src= user.photo)
+      form(method='post')
         .likeButton
-          a.btn.btn-primary.btn-sm(href='/') Like
-        .viewButton
-          a.btn.btn-primary.btn-sm(href='/') View Profile
+          button.btn.btn-primary.btn-sm(type='submit' formaction= '/' name='likedusers' value=user.id) Like

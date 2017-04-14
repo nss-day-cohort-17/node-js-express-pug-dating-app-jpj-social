@@ -8,19 +8,17 @@ module.exports.show = (req, res) => res.render('login', {page: 'Login'});
 // create method runs authentication and sends user to home if logged in
 module.exports.create = (req, res, next) =>
   passport.authenticate('local', (err, user, msg) => {
-    // console.log('user', user)
     // error is caught at end of app.js
-    if(err) return next(err)
-      console.log("1st err", user)
+    if(err) {
+      return res.render('login', { msg : 'No matching login credentials found, please try again'})
+    }
+
     // when not logged in go back to login
-    if(!user)
-      // return res.render('login', {page: 'Login'}, msg)
-      console.log("msg",msg);
+    if(!user) return res.render('login', {page: 'Login'}, msg)
     // when logged in redirect to home
     req.login(user, (err) => {
       // error is caught at end of app.js
       if(err) return next(err)
-      console.log("error",err)
       // sets variable on cookie to username
       req.session.username = req.body.username
       req.session.fromReg = false

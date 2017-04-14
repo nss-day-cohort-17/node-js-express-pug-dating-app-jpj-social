@@ -70,7 +70,6 @@ module.exports.create = (req, res, err) => {
   // need to tell bookshelf everything you want saved and the method to use
   .save({firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, gender: req.body.gender, city: req.body.city, state: req.body.state, phone: req.body.phone, likes: req.body.likes, dislikes: req.body.dislikes, photo: req.body.photo}, {method: 'update'})
   .then((profileObj) => {
-    // console.log('profileObj',profileObj)
     req.flash('profileMsg', 'Thank you for joining!')
     res.redirect('/')
   })

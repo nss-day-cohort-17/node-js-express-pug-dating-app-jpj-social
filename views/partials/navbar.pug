@@ -7,23 +7,23 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
     //- puts company name in left corner of nav bar
     a.navbar-brand(href='/') #{company}
+    #navbar.collapse.navbar-collapse
+      //- buttons (will collapse into hamburger and will be selected when on page)
+      ul.nav.navbar-nav
+        li(class={active: !page})
+          a(href='/') Home
+        li(class={active: page === 'Favorites'})
+          a(href='/favorite') Favorites
+        li(class={active: page === 'Profile'})
+          a(href='/profile') Profile
+        //- checks to see if a user is logged in
+        if username
+          //- displays username if logged in and makes username a logout link
+          li: a(href='/logout') Logged in as #{username}
+        //- displays login and register choices if not logged in
+        else
+          li(class={active: page === 'Login'})
+            a(href='/login') Login
+          li(class={active: page === 'Register'})
+            a(href='/register') Register
 
-      #navbar.collapse.navbar-collapse
-        //- buttons (will collapse into hamburger and will be selected when on page)
-        ul.nav.navbar-nav
-          li(class={active: !page})
-            a(href='/') Home
-          li(class={active: page === 'Favorites'})
-            a(href='/favorite') Favorites
-          li(class={active: page === 'Profile'})
-            a(href='/profile') Profile
-            //- checks to see if a user is logged in
-            if username
-              //- displays username if logged in and makes username a logout link
-              li: a(href='/logout') Logged in as #{username}
-            //- displays login and register choices if not logged in
-            else
-              li(class={active: page === 'Login'})
-                a(href='/login') Login
-              li(class={active: page === 'Register'})
-                a(href='/register') Register
