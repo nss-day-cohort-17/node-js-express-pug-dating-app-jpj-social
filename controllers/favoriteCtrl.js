@@ -15,6 +15,7 @@ module.exports.show = (req, res, next) => {
     })
     Promise.all(userPromise)
     .then ((likedUserArr) =>{
+      req.session.fromReg = false
       res.render('favorite', {page: 'Favorites', likedUserArr})
     })
   })

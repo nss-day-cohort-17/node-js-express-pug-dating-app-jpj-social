@@ -8,6 +8,7 @@ module.exports.show = (req, res, next) => {
   User.getAllUsers()
   .then(users => {
     users = users.toJSON()
+    req.session.fromReg = false
     res.render('index', {page: 'Home', users})
   })
 }

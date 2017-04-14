@@ -23,6 +23,7 @@ module.exports.create = (req, res, next) =>
       console.log("error",err)
       // sets variable on cookie to username
       req.session.username = req.body.username
+      req.session.fromReg = false
       res.redirect('/')
     })
   })(req, res, next)
